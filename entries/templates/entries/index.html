@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="https://www.iconbunny.com/icons/media/catalog/product/cache/2/thumbnail/600x/1b89f2fc96fc819c2a7e15c7e545e8a9/3/1/3173.12-diary-icon-iconbunny.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <title>Dear Diary</title>
+</head>
+<body>
+  
+  <section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Dear Diary
+            </h1>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <a href="{% url 'add' %}">Add new entry</a>
+                </div>
+            </div>
+        </article>
+{% for entry in entries  %}
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>{{ entry.date_posted }}</strong>
+                        <br> {{ entry.text }}
+                    </p>
+                </div>
+            </div>
+        </article>
+{% endfor %}
+        
+    </div>
+
+</section>
+<footer class="footer">
+</footer>
+
+</body>
+</html>
